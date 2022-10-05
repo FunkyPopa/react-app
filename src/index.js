@@ -1,17 +1,51 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
+import {BrowserRouter} from "react-router-dom";
+import {Provider} from "react-redux";
+import {combineReducers, createStore} from "redux";
+
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+
+const userReducer = ((state = {users: []}, action) => {
+    switch (action.type) {
+        case 'LOAD_USERS':
+            state = {users: action.payload}
+            return {...state}
+    }
+
+    return state
+
+});
+
+const postReducer = ((state = {posts: []}, action) => {
+    switch (action.type) {
+        case 'LOAD_POSTS':
+            state = {posts: action.payload}
+            return{...state}
+    }
+
+    return state
+
+})
+
+
+
+
+
+let reducer = combineReducers({
+    userReducer, //userReducer: userReducer
+    postReducer
+});
+let store = createStore(reducer)
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+
+    <Provider store={store}>
+    <BrowserRouter>
+        <App/>
+    </BrowserRouter>
+    </Provider>
+
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
