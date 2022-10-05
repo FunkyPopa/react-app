@@ -1,5 +1,5 @@
 import {Users} from "../components";
-import {useSelector} from "react-redux";
+
 
 const UsersPage = ({dispatch}) => {
     return(

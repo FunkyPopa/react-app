@@ -26,15 +26,23 @@ const postReducer = ((state = {posts: []}, action) => {
 
     return state
 
-})
+});
 
+const commentReducer = ((state = {comments: []}, action) => {
+    switch (action.type) {
+        case 'LOAD_COMMENTS':
+            state = {comments: action.payload}
+            return{...state}
+    }
 
+    return state
 
-
+});
 
 let reducer = combineReducers({
     userReducer, //userReducer: userReducer
-    postReducer
+    postReducer,
+    commentReducer
 });
 let store = createStore(reducer)
 

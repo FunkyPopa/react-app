@@ -6,9 +6,10 @@ import {useDispatch, useSelector} from "react-redux";
 
 function App() {
 
-    let userState = useSelector( state => {
+    let state = useSelector( state => {
         console.log(state.userReducer);
         console.log(state.postReducer);
+        console.log(state.commentReducer)
     });
 
 
