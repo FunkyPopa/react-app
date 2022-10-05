@@ -2,9 +2,11 @@ import {useEffect, useState} from "react";
 
 import {commentsService} from "../../services";
 import {Comment} from "../comment/Comment";
+import {useDispatch} from "react-redux";
 
-const Comments = ({dispatch}) => {
+const Comments = () => {
     let [comments, setComments] = useState([]);
+    let dispatch = useDispatch();
 
     useEffect( () => {
         commentsService.getAll().then(({data}) => {

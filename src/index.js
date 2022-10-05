@@ -6,7 +6,7 @@ import {combineReducers, createStore} from "redux";
 
 import App from './App';
 
-const userReducer = ((state = {users: []}, action) => {
+export const userReducer = ((state = {users: []}, action) => {
     switch (action.type) {
         case 'LOAD_USERS':
             state = {users: action.payload}
@@ -17,7 +17,7 @@ const userReducer = ((state = {users: []}, action) => {
 
 });
 
-const postReducer = ((state = {posts: []}, action) => {
+export const postReducer = ((state = {posts: []}, action) => {
     switch (action.type) {
         case 'LOAD_POSTS':
             state = {posts: action.payload}
@@ -28,7 +28,7 @@ const postReducer = ((state = {posts: []}, action) => {
 
 });
 
-const commentReducer = ((state = {comments: []}, action) => {
+export const commentReducer = ((state = {comments: []}, action) => {
     switch (action.type) {
         case 'LOAD_COMMENTS':
             state = {comments: action.payload}
@@ -56,4 +56,5 @@ root.render(
     </Provider>
 
 );
+
 
