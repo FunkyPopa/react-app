@@ -1,9 +1,9 @@
 import {Posts} from "../components";
 
-const PostsPage = ({dispatch}) => {
+const PostsPage = () => {
     return(
         <div>
-            <Posts dispatch={dispatch}/>
+            <Posts/>
         </div>
     )
 }

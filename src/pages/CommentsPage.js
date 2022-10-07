@@ -1,9 +1,9 @@
 import {Comments} from "../components";
 
-const CommentsPage = ({dispatch}) => {
+const CommentsPage = () => {
     return(
         <div>
-            <Comments dispatch={dispatch}/>
+            <Comments/>
         </div>
     )
 }

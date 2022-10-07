@@ -8,7 +8,6 @@ const Users = () => {
     const {users} = useSelector( state => state.userReducer)
     const dispatch = useDispatch();
 
-
     useEffect( () => {
         usersService.getAll().then(({data}) => {
             dispatch({type: 'LOAD_USERS', payload: data});

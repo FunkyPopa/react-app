@@ -1,4 +1,4 @@
-const User = ({user, dispatch}) => {
+const User = ({user}) => {
     let {id, name} = user
 
     return(

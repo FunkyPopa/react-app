@@ -4,7 +4,6 @@ import {useDispatch, useSelector} from "react-redux";
 import {postsService} from "../../services";
 import {Post} from "../post/Post";
 
-
 const Posts = () => {
     const {posts} = useSelector(state => state.postReducer)
     const dispatch = useDispatch();

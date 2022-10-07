@@ -1,10 +1,10 @@
 import {Users} from "../components";
 
 
-const UsersPage = ({dispatch}) => {
+const UsersPage = () => {
     return(
         <div>
-           <Users dispatch={dispatch}/>
+           <Users/>
         </div>
     )
 }
