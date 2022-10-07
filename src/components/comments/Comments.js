@@ -1,16 +1,15 @@
-import {useEffect, useState} from "react";
+import {useEffect} from "react";
+import {useDispatch, useSelector} from "react-redux";
 
 import {commentsService} from "../../services";
 import {Comment} from "../comment/Comment";
-import {useDispatch} from "react-redux";
 
 const Comments = () => {
-    let [comments, setComments] = useState([]);
-    let dispatch = useDispatch();
+    const {comments} = useSelector(state => state.commentReducer)
+    const dispatch = useDispatch();
 
     useEffect( () => {
         commentsService.getAll().then(({data}) => {
-            setComments(data)
             dispatch({type: 'LOAD_COMMENTS', payload: data})
         })
     }, []);

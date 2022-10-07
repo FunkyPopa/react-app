@@ -1,15 +1,16 @@
-import {useEffect, useState} from "react";
+import {useEffect} from "react";
+import {useDispatch, useSelector} from "react-redux";
 
 import {postsService} from "../../services";
 import {Post} from "../post/Post";
 
 
-const Posts = ({dispatch}) => {
-    let [posts, setPosts] = useState([]);
+const Posts = () => {
+    const {posts} = useSelector(state => state.postReducer)
+    const dispatch = useDispatch();
 
     useEffect( () => {
         postsService.getAll().then(({data}) => {
-            setPosts(data)
             dispatch({type: 'LOAD_POSTS', payload: data})
         })
     }, []);

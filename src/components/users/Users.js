@@ -1,11 +1,11 @@
 import {useEffect} from "react";
+import {useDispatch, useSelector} from "react-redux";
 
 import {usersService} from "../../services";
 import {User} from "../user/User";
-import {useDispatch, useSelector} from "react-redux";
 
 const Users = () => {
-    const {state} = useSelector( state => state.userReducer)
+    const {users} = useSelector( state => state.userReducer)
     const dispatch = useDispatch();
 
 
@@ -18,7 +18,7 @@ const Users = () => {
     return(
         <div>
             {
-                state.map(user => <User user={user} key={user.id}/>)
+                users.map(user => <User user={user} key={user.id}/>)
             }
         </div>
     )
