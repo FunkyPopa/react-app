@@ -1,4 +1,5 @@
-import {Cars} from "./components/Cars/Cars";
+import React from 'react';
+
 
 function App() {
 
